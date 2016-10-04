@@ -1,7 +1,7 @@
 <div class="title">Sort by: </div>
 {{#each filterArray as |object index|}}
     {{frost-sort-item sortId=object.id
-      availableOptions=unselected
+      availableOptions=unselectedOptions
       allOptions=properties
       hook=(concat hook '-' index)
       initVal=object.value
@@ -10,7 +10,7 @@
       sortChange=(action 'sortArrayChange')
       remove=(action 'removeFilter')}}
 {{/each}}
-{{#unless hideAddButton}}
+{{!--#unless hideAddButton}}
   {{frost-button
   hook=(concat hook '-add')
   pack='frost-sort'
@@ -19,4 +19,4 @@
   priority='tertiary'
   text='Add'
   onClick=(action "addFilter")}}
-{{/unless}}
+{{/unless--}}

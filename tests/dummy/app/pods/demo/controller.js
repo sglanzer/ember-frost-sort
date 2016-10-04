@@ -22,25 +22,27 @@ export default Controller.extend({
       label: 'Time'
     }
   ],
-  queryParams: ['querySortOrder'],
+  // queryParams: ['querySortOrder'],
+  queryParams: ['sortOrder'],
   sortOrder: ['name:asc'],
-  querySortOrder: [{value: 'name', direction: 'asc'}],
+  // querySortOrder: [{value: 'name', direction: 'asc'}],
 
   actions: {
     // BEGIN-SNIPPET sort-action
-    sortRecords: function (sortItems) {
-      let temp = []
+    sortRecords: function (sortOrder) {
+      // let temp = []
 
-      sortItems.map(function (item) {
-        temp.push({
-          value: item.value,
-          direction: item.direction
-        })
-      })
-      this.set('querySortOrder', temp)
-      this.set('sortOrder', sortItems.map((object) => {
-        return object.value + object.direction
-      }))
+      // sortItems.map(function (item) {
+      //   temp.push({
+      //     value: item.value,
+      //     direction: item.direction
+      //   })
+      // })
+      // this.set('querySortOrder', temp)
+      // this.set('sortOrder', sortItems.map((object) => {
+      //   return object.value + object.direction
+      // }))
+      this.set('sortOrder', sortOrder)
       this.get('notifications').addNotification({
         message: this.get('sortOrder'),
         type: 'success',
